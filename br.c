@@ -1,9 +1,16 @@
+/*
+Создаем массив 20х20 для рисования
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #define MAXX 20
 #define MAXY 20
 char data[MAXX][MAXY];
 
+/*
+Функция для рисования точки с координатами x,y, которую
+я буду использовать.
+*/
 inline void paint(int x, int y, char c){
   if ((x<0)||(x>MAXX)||(y<0)||(y>MAXY)){
     printf("Range error: %d, %d", x,y);
@@ -262,7 +269,7 @@ void line5(int x1, int y1, int x2, int y2, int w){
 
   int s=dx>dy;
 
-  // разобьем толщину на две примерно равные части:
+  /* разобьем толщину на две примерно равные части:*/
   int w1=w>>1;
   int w2=w>>1;
   if (w1+w2<w) w2++;
@@ -334,8 +341,8 @@ inline void set8p(int xc, int yc, int x, int y){
     paint(xc+y,yc-x,'*');
     paint(xc-y,yc+x,'*');
     paint(xc-x,yc-y,'*');
-    // границы рисуем только у половины секторов, чтоб
-    // не закрашивать дважды одну точку
+    /* границы рисуем только у половины секторов, чтоб */
+    /* не закрашивать дважды одну точку */
     if ((x>0)&&(x<y)){ 
       paint(xc+x,yc-y,'o');
       paint(xc+y,yc+x,'o');
@@ -494,7 +501,8 @@ void circ3(int xc, int yc, int r, int w, int fill){
 */
 
 /*
-   Ну и испытываю все эти функции 
+Ну и испытываю все эти функции, чтобы получить картинки,
+приведенные выше:
 */
 
 
